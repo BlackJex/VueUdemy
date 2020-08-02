@@ -81,7 +81,7 @@
 
             <div class="content">
               <div id="app"class="">
-                <h1>{{ message }}</h1>
+                
               </div>
                 <div class="title m-b-md">
                     Laravel

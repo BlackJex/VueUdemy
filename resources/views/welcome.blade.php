@@ -76,12 +76,13 @@
                             <a href="{{ route('register') }}">Register</a>
                         @endif
                     @endauth
+                      <a class="btn btn-success" href="{{ route('question.index') }}">Questions</a>
                 </div>
             @endif
 
             <div class="content">
               <div id="app"class="">
-                
+
               </div>
                 <div class="title m-b-md">
                     Laravel

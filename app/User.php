@@ -41,9 +41,20 @@ class User extends Authenticatable
     /**
      * Return Questions of the User.
      *
-     * 
+     *
      */
      public function questions(){
        return $this->hasMany(Question::class);
      }
+
+     /**
+      *
+      * get URL Attribute
+      *
+      */
+      public function getUrlAttribute()
+      {
+        //return route('user.show', $this->id);
+        return '#';
+      }
 }

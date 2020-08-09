@@ -15,10 +15,6 @@
 
     <!-- Bootstrap CSS -->
     <link href="{{ asset('main/bootstrap/bootstrap-4.4.1/css/bootstrap.min.css') }}" rel="stylesheet">
-
-    <!-- VueUdemy CSS -->
-    <link rel="stylesheet" href="{{ asset('css/vueUdemy.css') }}">
-
 </head>
 <body>
     <div id="app">

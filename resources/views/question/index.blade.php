@@ -6,7 +6,12 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
-                  {{ __('All Questions') }}
+                  <div class="d-flex align-items-center">
+                    {{ __('All Questions') }}
+                    <div class="ml-auto">
+                      <a href="{{ route('question.create') }}" class="btn btn-outline-secondary">{{ __('Ask Question') }}</a>
+                    </div>
+                  </div>
                 </div>
 
                 <div class="card-body">

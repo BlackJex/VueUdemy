@@ -36,8 +36,13 @@
                             <a href="{{ $question->url }}">{{ $question->title }}</a>
                           </h3>
                           @auth
-                            <div class="ml-auto">
-                              <a href="{{ route('question.edit', $question) }}" class="btn btn-sm btn-outline-info">{{ __('Edit') }}</a>
+                            <div class="ml-auto ">
+                              <a href="{{ route('question.edit', $question) }}" class="btn btn-sm btn-outline-info my-2">{{ __('Edit') }}</a>
+                              <form class="form-delete my-2" action="{{ route('question.destroy', $question) }}" method="post">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submti" class="btn btn-sm btn-outline-danger" onclick="return confirm('Are you sure?')">{{ __('Delete') }}</button>
+                              </form>
                             </div>
                           @endauth
                         </div>

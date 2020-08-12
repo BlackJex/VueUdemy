@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Question;
 use Illuminate\Http\Request;
 
+use App\Http\Requests\AskQuestionRequest;
+
 class QuestionController extends Controller
 {
     /**
@@ -38,9 +40,12 @@ class QuestionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(AskQuestionRequest $request, Question $question)
     {
-        //
+        //$question->cerate($request->all());
+        $request->user()->questions()->create($request->all());
+
+        return redirect()->route('question.index')->with('success', __('Question created succesfully!'));
     }
 
     /**

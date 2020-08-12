@@ -16,7 +16,7 @@
 
                 <div class="card-body">
                   @include('layouts._messages')
-                  
+
                   @forelse($questions as $question)
                     <div class="media">
                       <div class="d-flex flex-column counters">
@@ -31,9 +31,16 @@
                         </div>
                       </div>
                       <div class="media-body">
-                        <h3 class="mt-0">
-                          <a href="{{ $question->url }}">{{ $question->title }}</a>
-                        </h3>
+                        <div class="d-flex align-items-center">
+                          <h3 class="mt-0">
+                            <a href="{{ $question->url }}">{{ $question->title }}</a>
+                          </h3>
+                          @auth
+                            <div class="ml-auto">
+                              <a href="{{ route('question.edit', $question) }}" class="btn btn-sm btn-outline-info">{{ __('Edit') }}</a>
+                            </div>
+                          @endauth
+                        </div>
                         <p class="lead">
                           Asked by
                           <a href="{{ $question->user->url }}">{{ $question->user->name }}</a>

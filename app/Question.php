@@ -40,7 +40,7 @@ class Question extends Model
      */
      public function getUrlAttribute()
      {
-       return route('question.show', $this->id);
+       return route('question.show', $this->slug);
      }
 
      /**
@@ -70,6 +70,16 @@ class Question extends Model
          }else{
            return 'unanswered';
          }
+       }
+
+       /**
+        *
+        * get body_html Attribute
+        *
+        */
+       public function getBodyHtmlAttribute()
+       {
+         return \Parsedown::instance()->text($this->body);
        }
 
  }

@@ -1,0 +1,43 @@
+.counters
+{
+  margin-right: 30px;
+  font-size: 10px;
+  text-align: center;
+}
+.vote, .answer
+{
+  width:60px;
+  height: :60px;
+}
+
+.counters strong
+{
+  display: block;
+  font-size: 2em;
+}
+
+.status.unanswered
+{
+  border: none;
+}
+.status.answered
+{
+  border: 1px solid #28a745;
+  color: #28a745;
+}
+
+.status.answered-accepted
+{
+  background-color: #28a745;
+  color: white;
+}
+
+.view
+{
+  margin-top: 10px;
+}
+
+form.form-delete
+{
+  display: inline;
+}

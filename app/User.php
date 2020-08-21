@@ -49,6 +49,16 @@ class User extends Authenticatable
 
      /**
       *
+      * Return the Answers of the User.
+      *
+      */
+     public function answers()
+     {
+       return $this->hasMany(Answer::class);
+     }
+
+     /**
+      *
       * get URL Attribute
       *
       */

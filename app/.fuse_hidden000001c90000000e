@@ -10,19 +10,8 @@ use Illuminate\Database\Eloquent\Model;
 class Answer extends Model
 {
   protected $fillable = [
-    'body',
-    'user_id'
+    'body'
   ];
-
-  /**
-   *
-   * get Created_Date Attribute
-   *
-   */
-   public function getCreatedDateAttribute()
-   {
-     return $this->created_at->diffForHumans();
-   }
 
   /**
    *

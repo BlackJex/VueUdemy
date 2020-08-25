@@ -15,16 +15,6 @@ class Answer extends Model
 
   /**
    *
-   * get Created_Date Attribute
-   *
-   */
-   public function getCreatedDateAttribute()
-   {
-     return $this->created_at->diffForHumans();
-   }
-
-  /**
-   *
    * Return the Question related to the Answer.
    *
    */

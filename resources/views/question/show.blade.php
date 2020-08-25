@@ -5,7 +5,8 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">
+              <div class="card-body">
+                <div class="card-title">
                   <div class="d-flex align-items-center">
                     <h1>{{ $question->title }}</h1>
                     <div class="ml-auto">
@@ -13,22 +14,39 @@
                     </div>
                   </div>
                 </div>
-                <div class="card-body">
-                  {!! $question->body_html !!}
-                  <div class="float-right">
-                    <span class="text-muted">
-                      {{ $question->created_date }}
-                      <div class="media mt-2">
-                        <a href="{{ $question->user->url }}" class="pr-2">
-                          <img src="{{ $question->user->avatar  }}" alt="{{ $question->user->name }}">
-                        </a>
-                        <div class="media-body mt-1">
-                          <a href="{{ $question->user->url }}">{{ $question->user->name }}</a>
+                <hr>
+                <div class="media">
+                  <div class="d-flex flex-column vote-controls">
+                    <a title="This question is useful" class="vote-up up">
+                      <i class="fa fa-caret-up fa-3x"></i>
+                    </a>
+                    <span class="votes-count">{{ $question->votes }}</span>
+                    <a title="This question is not useful" class="vote-down off">
+                      <i class="fa fa-caret-down fa-3x"></i>
+                    </a>
+                    <a class="favorite favorited mt-2" title="Click to mark as favorite (click again to undo)">
+                      <i class="fa fa-star fa-2x"></i>
+                    </a>
+                    <span class="favorites-count">123</span>
+                  </div>
+                  <div class="media-body">
+                    {!! $question->body_html !!}
+                    <div class="float-right">
+                      <span class="text-muted">
+                        {{ $question->created_date }}
+                        <div class="media mt-2">
+                          <a href="{{ $question->user->url }}" class="pr-2">
+                            <img src="{{ $question->user->avatar  }}" alt="{{ $question->user->name }}">
+                          </a>
+                          <div class="media-body mt-1">
+                            <a href="{{ $question->user->url }}">{{ $question->user->name }}</a>
+                          </div>
                         </div>
-                      </div>
-                    </span>
+                      </span>
+                    </div>
                   </div>
                 </div>
+              </div>
             </div>
         </div>
     </div>
@@ -43,6 +61,18 @@
             <hr>
             @foreach($question->answers as $answer)
               <div class="media">
+                <div class="d-flex flex-column vote-controls">
+                  <a title="This question is useful" class="vote-up up">
+                    <i class="fa fa-caret-up fa-3x"></i>
+                  </a>
+                  <span class="votes-count">{{ $answer->votes_count }}</span>
+                  <a title="This question is not useful" class="vote-down off">
+                    <i class="fa fa-caret-down fa-3x"></i>
+                  </a>
+                  <a class="vote-accept best mt-2" title="Mark this answer as best answer">
+                    <i class="fa fa-check fa-2x"></i>
+                  </a>
+                </div>
                 <div class="media-body">
                   {!! $answer->body_html !!}
                   <div class="float-right">

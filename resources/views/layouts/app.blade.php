@@ -15,7 +15,8 @@
 
     <!-- Bootstrap CSS -->
     <link href="{{ asset('main/bootstrap/bootstrap-4.4.1/css/bootstrap.min.css') }}" rel="stylesheet">
-
+    <!-- FontAwesome CSS -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css">
     <!-- VueUdemy CSS -->
     <link rel="stylesheet" href="{{ asset('css/vueUdemy.css') }}">
 

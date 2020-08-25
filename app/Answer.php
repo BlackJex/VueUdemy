@@ -44,4 +44,19 @@ class Answer extends Model
     return \Parsedown::instance()->text($this->body);
   }
 
+  /**
+   *
+   * execute the following code when an answer is created
+   *
+   */
+   public static function boot()
+   {
+     parent::boot();
+     static::created(function($answer){
+       //increment the answer count when a new answer is created
+        $answer->question->increment('answers_count');
+        $answer->question->save();
+     });
+
+   }
 }

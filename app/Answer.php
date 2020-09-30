@@ -66,7 +66,11 @@ class Answer extends Model
      static::created(function($answer){
        //increment the answer count when a new answer is created
         $answer->question->increment('answers_count');
-        $answer->question->save();
+     });
+
+     static::deleted(function($answer){
+       //increment the answer count when a new answer is created
+        $answer->question->decrement('answers_count');
      });
 
    }

@@ -80,6 +80,14 @@ a.favorite.favorited, a.favorite.favorited:hover{
   color: #ffc107;
 }
 
-a.vote-accept.best{
+a.vote-accept, a.vote-accept:hover{
   color: green;
+}
+.d-none
+{
+  display: none;
+}
+.cursor-pointer
+{
+  cursor: pointer;
 }

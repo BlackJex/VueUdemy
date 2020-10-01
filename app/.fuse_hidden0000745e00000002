@@ -45,11 +45,6 @@ class Answer extends Model
     return $this->belongsTo(User::class);
   }
 
-  public function isBest()
-  {
-    return $this->id == $this->question->best_answer_id;
-  }
-
   /**
    *
    * get body_html Attribute
@@ -67,16 +62,7 @@ class Answer extends Model
    */
   public function getStatusAttribute()
   {
-     return $this->isBest() ? 'vote-accept' : '';
-  }
-  /**
-   *
-   * get is_best Attribute
-   *
-   */
-  public function getIsBestAttribute()
-  {
-    return $this->isBest();
+    return $this->id == $this->question->best_answer_id ? 'vote-accepted' : '';
   }
 
   /**
@@ -93,7 +79,7 @@ class Answer extends Model
      });
 
      static::deleted(function($answer){
-
+       
        //decrement the answer count when an answer is deleted
         $answer->question->decrement('answers_count');
 

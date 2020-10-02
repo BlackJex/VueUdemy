@@ -20,7 +20,7 @@
                     <a title="This question is useful" class="vote-up">
                       <i class="fa fa-caret-up fa-3x"></i>
                     </a>
-                    <span class="votes-count">{{ $question->votes_count }}</span>
+                    <span class="votes-count">{{ $question->votes }}</span>
                     <a title="This question is not useful" class="vote-down">
                       <i class="fa fa-caret-down fa-3x"></i>
                     </a>

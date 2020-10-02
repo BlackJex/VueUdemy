@@ -32,3 +32,4 @@ Route::post('/question/{question}/vote', 'VoteQuestionController')->name('questi
 
 //Answer
 Route::post('/answer/{answer}/accept', 'AcceptAnswerController')->name('answer.accept');
+Route::post('/answer/{answer}/vote', 'VoteAnswerController')->name('answer.vote');

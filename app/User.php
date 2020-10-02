@@ -127,4 +127,24 @@ class User extends Authenticatable
          $question->save();
        }
 
+       public function voteAnswer(Answer $answer, $vote)
+       {
+         $vote_answers = $this->voteAnswers();
+
+         if($vote_answers->where('votable_id', $answer->id)->exists())
+         {
+           $vote_answers->updateExistingPivot($answer, ['vote' => $vote]);
+         }else
+         {
+           $vote_answers->attach($answer, ['vote' => $vote]);
+         }
+
+         $answer->load('votes');
+         $downVotes = (int) $answer->downVotes()->sum('vote');
+         $upVotes = (int) $answer->upVotes()->sum('vote');
+
+         $answer->votes_count = $upVotes + $downVotes;
+         $answer->save();
+       }
+
 }

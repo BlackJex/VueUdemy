@@ -68,6 +68,25 @@ class User extends Authenticatable
 
      /**
       *
+      * Return the questions votes of the User.
+      *
+      */
+     public function voteQuestions()
+     {
+       return $this->morphedByMany(Question::class, 'votable');
+     }
+     /**
+      *
+      * Return the answers votes of the User.
+      *
+      */
+     public function voteAnswers()
+     {
+       return $this->morphedByMany(Answer::class, 'votable');
+     }
+
+     /**
+      *
       * get URL Attribute
       *
       */
@@ -86,6 +105,26 @@ class User extends Authenticatable
          $email = $this->email;
          $size = 32;
          return "https://www.gravatar.com/avatar/" . md5(strtolower(trim($email))) . "?s=" . $size;
+       }
+
+       public function voteQuestion(Question $question, $vote)
+       {
+         $vote_questions = $this->voteQuestions();
+
+         if($vote_questions->where('votable_id', $question->id)->exists())
+         {
+           $vote_questions->updateExistingPivot($question, ['vote' => $vote]);
+         }else
+         {
+           $vote_questions->attach($question, ['vote' => $vote]);
+         }
+
+         $question->load('votes');
+         $downVotes = (int) $question->downVotes()->sum('vote');
+         $upVotes = (int) $question->upVotes()->sum('vote');
+
+         $question->votes_count = $upVotes + $downVotes;
+         $question->save();
        }
 
 }

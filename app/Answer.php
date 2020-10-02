@@ -52,6 +52,16 @@ class Answer extends Model
 
   /**
    *
+   * Return the Users that vote this Answer.
+   *
+   */
+  public function votes()
+  {
+    return $this->morphToMany(User::class, 'votable');
+  }
+
+  /**
+   *
    * get body_html Attribute
    *
    */

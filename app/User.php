@@ -48,6 +48,15 @@ class User extends Authenticatable
      }
 
      /**
+      * favorites relation.
+      *
+      *
+      */
+      public function favorites(){
+        return $this->belongsToMany(Question::class, 'favorites')->withTimestamps();
+      }
+
+     /**
       *
       * Return the Answers of the User.
       *

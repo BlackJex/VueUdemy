@@ -42,6 +42,7 @@
         </div>
     </div>
     <!-- Answers -->
+    @if($question->answers_count > 0)
     <div class="row mt-5 justify-content-center">
       <div class="col-md-8">
         <div class="card">
@@ -61,6 +62,7 @@
         </div>
       </div>
     </div>
+    @endif
     @include('answer._create', [
       'question' => $question
     ])

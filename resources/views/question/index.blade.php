@@ -63,7 +63,9 @@
                     </div>
                     <hr>
                   @empty
-                  {{ __('No Question Found') }}
+                    <div class="alert alert-warning">
+                      <strong>Sorry</strong> {{ __('No question found.') }}
+                    </div>
                   @endforelse
 
                   {{ $questions->links() }}

@@ -73,6 +73,15 @@ class Question extends Model
     }
     /**
      *
+     * Set the Body of the Question.
+     *
+     */
+    /*public function setBodyAttribute($value)
+    {
+      $this->attribute['body'] = clean($value);
+    }*/
+    /**
+     *
      * get URL Attribute
      *
      */
@@ -110,6 +119,15 @@ class Question extends Model
          }
        }
 
+       private function bodyHtml()
+       {
+         return \Parsedown::instance()->text($this->body);
+       }
+
+       public function excerpt($length)
+       {
+         return str_limit(strip_tags($this->bodyHtml()), $length);
+       }
        /**
         *
         * get body_html Attribute
@@ -117,7 +135,11 @@ class Question extends Model
         */
        public function getBodyHtmlAttribute()
        {
-         return \Parsedown::instance()->text($this->body);
+         return clean($this->bodyHtml());
+       }
+       public function getExcerptAttribute()
+       {
+         return $this->excerpt(250);
        }
 
        public function acceptBestAnswer(Answer $answer){

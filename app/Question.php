@@ -17,6 +17,14 @@ class Question extends Model
     ];
 
     /**
+    * The attributes that will be appended to the model
+    *
+    */
+    protected $appends = [
+      'created_date',
+    ];
+
+    /**
      *
      * Return the Owner of the Question.
      *

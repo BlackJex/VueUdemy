@@ -15,6 +15,13 @@ class Answer extends Model
     'body',
     'user_id'
   ];
+  /**
+  * The attributes that will be appended to the model
+  *
+  */
+  protected $appends = [
+    'created_date',
+  ];
 
   /**
    *

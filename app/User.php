@@ -39,6 +39,14 @@ class User extends Authenticatable
     ];
 
     /**
+    * The attributes that will be appended to the model
+    *
+    */
+    protected $appends = [
+      'url',
+      'avatar'
+    ];
+    /**
      * Return Questions of the User.
      *
      *

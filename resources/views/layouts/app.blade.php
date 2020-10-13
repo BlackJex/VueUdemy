@@ -89,6 +89,8 @@
     <script src="{{ asset('main/popper/popper-2018/js/popper.min.js') }}"></script>
     <!-- Bootstrap JS -->
     <script src="{{ asset('main/bootstrap/bootstrap-4.4.1/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
+
     @stack('js')
 </body>
 </html>

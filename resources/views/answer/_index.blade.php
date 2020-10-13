@@ -1,5 +1,5 @@
 @if($question->answers_count > 0)
-  <div class="row mt-5 justify-content-center">
+  <div class="row mt-5 justify-content-center" v-cloak>
     <div class="col-md-8">
       <div class="card">
         <div class="card-body">

@@ -19,7 +19,6 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css">
     <!-- VueUdemy CSS -->
     <link rel="stylesheet" href="{{ asset('css/vueUdemy.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
 </head>
 <body>

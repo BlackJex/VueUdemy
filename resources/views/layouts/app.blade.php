@@ -90,6 +90,12 @@
     <script src="{{ asset('main/popper/popper-2018/js/popper.min.js') }}"></script>
     <!-- Bootstrap JS -->
     <script src="{{ asset('main/bootstrap/bootstrap-4.4.1/js/bootstrap.min.js') }}"></script>
+    <script>
+      window.Auth = {!! json_encode([
+        'signedIn' => Auth::check(),
+        'user' => Auth::user()
+      ]) !!}
+    </script>
     <script src="{{ asset('js/app.js') }}"></script>
 
     @stack('js')

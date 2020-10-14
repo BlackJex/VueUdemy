@@ -65,16 +65,13 @@ span.favorites-count
 a.vote-up,a.vote-down,a.favorite,a.vote-accept
 {
   cursor:pointer;
-
 }
 
 a.vote-up.up, a.vote-up.up:hover{
   color: green;
 }
 
-a.vote-down.off, a.vote-down.off:hover{
-  color: red;
-}
+
 
 a.favorite.favorited, a.favorite.favorited:hover{
   color: #ffc107;

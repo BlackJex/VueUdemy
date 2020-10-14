@@ -10,3 +10,29 @@
 [v-cloak]{
   display: none;
 }
+
+.favorite.off
+{
+  color:#ddd;
+  &:hover {
+      color:#ddd;
+    }
+}
+
+a.vote-up.off
+{
+  color:#ddd;
+  &:hover
+  {
+    color:#ddd;
+  }
+}
+
+a.vote-down.off
+{
+  color:#ddd;
+  &:hover
+  {
+    color:#ddd;
+  }
+}

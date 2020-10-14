@@ -10903,3 +10903,27 @@ a.text-dark:focus {
   display: none;
 }
 
+.favorite.off {
+  color: #ddd;
+}
+
+.favorite.off:hover {
+  color: #ddd;
+}
+
+a.vote-up.off {
+  color: #ddd;
+}
+
+a.vote-up.off:hover {
+  color: #ddd;
+}
+
+a.vote-down.off {
+  color: #ddd;
+}
+
+a.vote-down.off:hover {
+  color: #ddd;
+}
+

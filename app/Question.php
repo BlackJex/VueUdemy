@@ -22,6 +22,8 @@ class Question extends Model
     */
     protected $appends = [
       'created_date',
+      'is_favorited',
+      'favorites_count'
     ];
 
     /**
@@ -46,7 +48,7 @@ class Question extends Model
 
      public function isFavorited()
      {
-       return $this->favorites()->where('user_id', auth()->user()->id)->count() > 0;
+       return auth()->user() ? $this->favorites()->where('user_id', auth()->user()->id)->count() > 0 : false;
      }
 
      public function getIsFavoritedAttribute()

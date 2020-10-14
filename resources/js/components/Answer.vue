@@ -28,7 +28,7 @@ export default {
     },
     update()
     {
-      axios.patch(`/question/${this.questionId}/answer/${this.id}`, {
+      axios.patch(this.endpoint, {
         body: this.body
       })
       .then((res) => {
@@ -41,6 +41,18 @@ export default {
 
         alert(err.response.data.message);
       });
+    },
+    destroy()
+    {
+      if(confirm('Are you sure?'))
+      {
+        axios.delete(this.endpoint)
+        .then((res) => {
+          $(this.$el).fadeOut(100, () => {
+            alert(res.data.message);
+          })
+        });
+      }
     }
   },
   computed:
@@ -48,6 +60,10 @@ export default {
     isInvalid()
     {
       return this.body.length < 10;
+    },
+    endpoint()
+    {
+      return `/question/${this.questionId}/answer/${this.id}`;
     }
   }
 }

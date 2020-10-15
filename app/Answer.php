@@ -21,7 +21,9 @@ class Answer extends Model
   */
   protected $appends = [
     'created_date',
-    'body_html'
+    'body_html',
+    'status',
+    'is_best'
   ];
 
   /**
